@@ -1,10 +1,12 @@
 const express = require('express');
-const bodyParser= require('body-parser');
+const bodyParser = require('body-parser');
+const schedule = require('./scheduler/compaign-job')
 
 const campaignRoutes = require('./routes/compaign-routes')
-const donationRoutes = require('./routes/donation-routes')
+const currencyRoutes = require('./routes/currencies-routes')
 
 const app = express();
+const server = require("http").createServer(app);
 
 app.use(bodyParser.json());
 
@@ -16,6 +18,8 @@ app.use((req, res, next) => {
 });
 
 app.use(campaignRoutes);
-app.use(donationRoutes);
+app.use(currencyRoutes);
 
-app.listen(5000);
+server.listen(5000, function() {
+  schedule
+});
