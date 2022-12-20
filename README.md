@@ -13,3 +13,8 @@ Loads DB dump and all relevant procedures
 
 ## `npm start`
 Runs server at port 5000
+
+## Procedures
+
+### For Marking compaign as fraud
+Use POST http://localhost:5000/compaigns/:id/fraud API endpoint to mark a compaign as fraud and all it's donations as invalid.
